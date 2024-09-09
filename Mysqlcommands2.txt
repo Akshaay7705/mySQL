@@ -1,0 +1,28 @@
+create database company;
+use company;
+create table employee 
+(
+   e_id int PRIMARY KEY,
+   e_name varchar(30)
+);
+
+insert into employee values (101,"Raj");
+insert into employee values (102,"Megha");
+insert into employee values (103,"Vijay");
+
+select * from employee;
+
+
+create table departments 
+(
+   dep_id int PRIMARY KEY,
+   dep_name varchar(30),
+   empid int,
+   FOREIGN KEY (empid) REFERENCES employee(e_id)
+);
+
+insert into departments values (1,"Accounts",102);
+insert into departments values (2,"HR",101);
+insert into departments values (3,"Finance",102);
+
+select * from departments;
