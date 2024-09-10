@@ -1,0 +1,37 @@
+use institute;
+
+create table courses
+(
+    c_id int primary key ,
+    c_name varchar(40)
+);
+
+insert into courses values (1,"java"), (2,"python"), (3,"js");
+
+select * from courses;
+
+create table students
+(
+    s_id int primary key,
+    s_name varchar(40),
+    c_id int
+);
+
+insert into students  values (101, "raj",2), (102, "megha",5), (103, "ranjan",3), (104, "ajay", 6);
+select * from students; 
+
+-- inner join for comman values
+select * from courses left join students
+on courses.c_id = students.c_id;
+
+-- left join
+select * from courses left join students
+on courses.c_id = students.c_id
+union
+-- right join
+select * from courses right join students
+on courses.c_id = students.c_id;
+
+select * from courses as abc inner join students as xyz
+on abc.c_id = xyz.c_id;
+

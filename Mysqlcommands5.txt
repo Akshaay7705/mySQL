@@ -1,0 +1,25 @@
+use electronics;
+
+create table products
+(
+    p_id int primary key auto_increment,
+    p_name varchar(40)
+);
+
+alter table products auto_increment = 5001;
+insert into products (p_name) values ("mobile"), ("laptop"), ("mouse"), ("charger");
+
+
+select * from products;
+create table location
+(
+    city_id int primary key auto_increment,
+    city_name varchar(40),
+    p_id int,
+    foreign key (p_id) references products(p_id)
+);
+
+insert into location (city_name, p_id) values ("goa", 5002), ("mysuru", 5003), ("pune", 5001);
+select * from location;
+select * from products left join location
+on products.p_id = location.p_id;

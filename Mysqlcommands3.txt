@@ -1,0 +1,55 @@
+use company;
+create table employees 
+(
+   e_id int PRIMARY KEY,
+   e_name varchar(30),
+   e_sal int
+);
+
+insert into employees values 
+(1,"Raj", 36732), (2,"Megha",44536), (3,"Vijay",44367), (4,"zen",56372), (5,"Arun",89373), (6,"MAx",863822);
+
+;
+
+-- wild card
+select e_name,e_sal from employees where e_name like '%n';
+
+-- aggregate
+select count(*) from employees;
+select max(e_sal) as highest from employees; 
+select min(e_sal) from employees;
+select sum(e_sal) from employees;
+select round(avg(e_sal), 2) from employees;
+
+select * from employees where e_sal > 45000;
+
+-- sorting and listing
+update employees set e_sal = 36500 where e_id = 4;
+select * from employees order by e_sal asc;
+select * from employees order by e_sal desc;
+select * from employees order by e_sal desc limit 3; 
+
+select * from employees order by e_sal desc limit 1 offset 2;
+select * from employees order by e_sal desc limit 2,1;-- it tells to eliminate the first 2 and shows third
+select * from employees order by e_sal desc limit 3,3;
+
+desc employees;
+
+-- departments 
+create table department
+(
+d_id int primary key auto_increment,
+d_name varchar(200)
+);
+
+insert into department (d_name) values ("Account"), ("HR");
+alter table department  auto_increment = 200;
+select * from department;
+
+
+
+
+
+
+
+
